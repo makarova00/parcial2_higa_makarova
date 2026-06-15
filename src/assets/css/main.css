@@ -1,0 +1,917 @@
+@import './base.css';
+
+/* =========================
+   GENERAL
+========================= */
+
+#app {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  background: var(--color-black);
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+
+.header {
+  width: 100%;
+  padding: 22px 40px;
+  background: var(--color-black);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--color-white);
+}
+
+.header nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.header nav a {
+  padding: 10px 16px;
+  border-radius: 999px;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.08);
+  transition: 0.2s;
+}
+
+.header nav a:hover,
+.header nav a.router-link-exact-active {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+/* =========================
+   MAIN / FOOTER
+========================= */
+
+main {
+  min-height: calc(100vh - 140px);
+}
+
+footer {
+  padding: 16px 24px;
+  text-align: center;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.boton-principal,
+.boton-secundario {
+  display: inline-block;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.1s;
+}
+
+button,
+.boton-principal {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+button:hover,
+.boton-principal:hover {
+  background: var(--color-accent);
+}
+
+button:active,
+.boton-principal:active,
+.boton-secundario:active {
+  transform: scale(0.98);
+}
+
+.boton-secundario {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-border);
+}
+
+.boton-secundario:hover {
+  background: #fff0f2;
+  color: var(--color-accent);
+}
+
+.btn-eliminar {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: #000000;
+  color: white;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-eliminar:hover {
+  background: #8f1d2c;
+}
+
+.btn-editar {
+  position: absolute;
+  top: 10px;
+  right: 42px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: #000000;
+  color: white;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-editar:hover {
+  background: #5b5ce2;
+}
+
+.pelicula-card {
+  cursor: grab;
+}
+
+.pelicula-card:active {
+  cursor: grabbing;
+  opacity: 0.7;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.home-view {
+  height: calc(100vh - 145px);
+  min-height: 560px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  background: var(--color-black);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.home-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 40px 48px 86px;
+  min-width: 0;
+}
+
+.home-imagen img {
+  width: 118%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+}
+
+.home-texto h2 {
+  margin: 0 0 22px;
+  font-size: 52px;
+  line-height: 1.05;
+  letter-spacing: 1px;
+}
+
+.home-texto p {
+  max-width: 620px;
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.home-botones {
+  margin-top: 28px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.home-botones .boton-principal,
+.home-botones .boton-secundario {
+  min-width: 160px;
+  text-align: center;
+}
+
+.home-imagen {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+/* =========================
+   AGREGAR VIEW
+========================= */
+
+.agregar-view {
+  min-height: calc(100vh - 145px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color-black);
+}
+
+.agregar-left {
+  position: relative;
+  min-height: calc(100vh - 145px);
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.agregar-left img {
+  position: absolute;
+  inset: 0;
+  width: 115%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.agregar-right {
+  min-height: calc(100vh - 145px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px;
+  background: var(--color-black);
+}
+
+.agregar-contenido {
+  width: 100%;
+  max-width: 560px;
+}
+
+.agregar-contenido > h2 {
+  margin: 0 0 8px;
+  color: var(--color-white);
+  font-size: 34px;
+  letter-spacing: 2px;
+}
+
+.subtitulo-form {
+  margin: 0 0 24px;
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* =========================
+   EDICIÓN INLINE
+========================= */
+
+.modo-edicion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.poster-editar {
+  position: relative;
+}
+
+.poster-editar img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.btn-cambiar-poster {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-cambiar-poster input {
+  display: none;
+}
+
+.input-inline {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.chips-edicion {
+  gap: 6px;
+}
+
+.chips-edicion .chip span {
+  padding: 7px 10px;
+  font-size: 12px;
+}
+
+.botones-edicion {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-guardar-inline,
+.btn-cancelar-inline {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.btn-guardar-inline {
+  background: #000000;
+  color: white;
+}
+
+.btn-cancelar-inline {
+  background: #8f1d2c;
+  color: white;
+}
+
+/* =========================
+   BIBLIOTECA VIEW
+========================= */
+
+.biblioteca-view {
+  min-height: 100vh;
+  padding: 34px 40px 60px;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url('../img/pochoclo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.titulo-seccion {
+  width: fit-content;
+  margin: 0 auto 28px;
+  padding: 10px 34px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #222222;
+  font-size: 26px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   VIEW HEADERS
+========================= */
+
+.encabezado-vista {
+  max-width: 1180px;
+  margin: 0 auto 34px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.encabezado-vista h2 {
+  margin: 0 0 10px;
+  color: var(--color-text);
+  font-size: 34px;
+}
+
+.encabezado-vista p {
+  margin: 0;
+  color: var(--color-soft-text);
+  font-size: 17px;
+}
+
+.encabezado-vista img {
+  width: 100%;
+  max-height: 230px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.formulario-pelicula {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 18px;
+  background: var(--color-white);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.14);
+}
+
+.formulario-pelicula form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario-pelicula label {
+  display: block;
+  margin: 22px 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.formulario-pelicula label:first-child {
+  margin-top: 0;
+}
+
+input[type='text'],
+input[type='date'],
+textarea,
+select {
+  width: 100%;
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-white);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+input[type='text']:focus,
+input[type='date']:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-black);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.formulario-pelicula button[type='submit'] {
+  width: 100%;
+  margin-top: 28px;
+}
+
+/* =========================
+   GÉNEROS / CHIPS
+========================= */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 4px;
+}
+
+.chip {
+  margin: 0;
+  cursor: pointer;
+}
+
+.formulario-pelicula .chip {
+  margin: 0;
+}
+
+.chip input {
+  display: none;
+}
+
+.chip span {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid #d6d6d6;
+  border-radius: 999px;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.chip input:checked + span {
+  background: #000000;
+  border-color: #000000;
+  color: #fff;
+}
+
+/* =========================
+   RATING
+========================= */
+
+.rating {
+  margin-top: 10px;
+}
+
+.estrella {
+  font-size: 26px;
+  color: #d6d6d6;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    transform 0.1s;
+}
+
+.estrella:hover {
+  transform: scale(1.15);
+}
+
+.estrella.activa {
+  color: #f5c518;
+}
+
+.obligatorio {
+  color: #8f1d2c;
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+.mensaje-error {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-left: 5px solid #c81e1e;
+  border-radius: 8px;
+  background-color: #fde8e8;
+  color: #c81e1e;
+}
+
+.mensaje-error p {
+  margin: 0 0 8px;
+  color: #c81e1e;
+}
+
+.mensaje-error ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+.mensaje-error li {
+  color: #c81e1e;
+}
+
+.mensaje-exito {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-left: 5px solid #046c4e;
+  border-radius: 8px;
+  background-color: #e8fdf5;
+  color: #046c4e;
+  font-weight: bold;
+}
+
+/* =========================
+   BIBLIOTECA SUMMARY
+========================= */
+
+.sin-peliculas,
+.resumen {
+  max-width: 1180px;
+  margin: 0 auto 28px;
+  padding: 20px 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.sin-peliculas {
+  width: fit-content;
+  text-align: center;
+}
+
+.sin-peliculas p {
+  margin: 0 0 16px;
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+.resumen {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.resumen p {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* =========================
+   EDITOR
+========================= */
+
+.editor {
+  max-width: 720px;
+  margin: 0 auto 34px;
+  padding: 28px;
+  border-radius: 18px;
+  background: var(--color-white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.editor h3 {
+  margin: 0 0 18px;
+  color: var(--color-accent-dark);
+}
+
+.editor .acciones {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   COLUMNAS
+========================= */
+
+.columnas-peliculas {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.columna-estado {
+  min-height: 400px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+  gap: 16px;
+  border-radius: 18px;
+  background: #f5f7fa;
+  transition: background 0.2s;
+}
+
+.columna-estado h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: center;
+  color: #222;
+}
+
+.columna-estado:hover {
+  background: #fff0f2;
+}
+
+/* =========================
+   MOVIE CARDS
+========================= */
+
+.pelicula-card {
+  position: relative;
+  padding: 12px;
+  border-left: 5px solid var(--color-accent);
+  border-radius: 14px;
+  background: var(--color-white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.pelicula-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.pelicula-info {
+  padding: 0;
+}
+
+.pelicula-info h3 {
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddddd;
+  color: var(--color-accent-dark);
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.pelicula-info p {
+  margin: 6px 0;
+  color: #333333;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.pelicula-info strong {
+  color: #111111;
+}
+
+.estado {
+  display: none;
+}
+
+.fecha {
+  margin-top: 8px;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.acciones {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.acciones button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .home-view {
+    height: auto;
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .home-imagen {
+    height: 360px;
+    order: -1;
+  }
+
+  .agregar-view {
+    grid-template-columns: 1fr;
+  }
+
+  .agregar-left {
+    min-height: 340px;
+  }
+
+  .agregar-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .agregar-right {
+    min-height: auto;
+    padding: 34px 24px;
+  }
+
+  .encabezado-vista {
+    grid-template-columns: 1fr;
+  }
+
+  .lista-peliculas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .columnas-peliculas {
+    grid-template-columns: 1fr;
+  }
+
+  .columna-estado {
+    grid-template-columns: 1fr 1fr;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-texto {
+    padding: 38px 22px;
+  }
+
+  .home-texto h2 {
+    font-size: 36px;
+  }
+
+  .home-texto p {
+    font-size: 16px;
+  }
+
+  .home-imagen {
+    height: 260px;
+  }
+
+  .biblioteca-view {
+    padding: 24px 16px 44px;
+  }
+
+  .agregar-left {
+    min-height: 260px;
+  }
+
+  .agregar-right {
+    padding: 24px 16px 44px;
+  }
+
+  .formulario-pelicula,
+  .editor,
+  .encabezado-vista {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .lista-peliculas {
+    grid-template-columns: 1fr;
+  }
+
+  .resumen {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .acciones {
+    flex-direction: column;
+  }
+
+  .acciones button,
+  .boton-principal,
+  .boton-secundario {
+    width: 100%;
+    text-align: center;
+  }
+
+  .agregar-left {
+    min-height: 260px;
+    background-size: contain;
+  }
+
+  .agregar-right {
+    padding: 24px 16px 44px;
+  }
+
+  .columna-estado {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+}
