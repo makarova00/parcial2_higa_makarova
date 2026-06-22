@@ -116,6 +116,8 @@ export default {
         { texto: 'Documental', dato: 'documental' },
         { texto: 'Musical', dato: 'musical' },
         { texto: 'Familiar', dato: 'familiar' },
+        { texto: 'Ciencia ficción', dato: 'ciencia_ficcion' },
+        { texto: 'Animación', dato: 'animacion' },
         { texto: 'Otro', dato: 'otro' },
       ],
 
