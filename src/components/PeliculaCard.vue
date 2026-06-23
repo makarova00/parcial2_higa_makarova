@@ -68,7 +68,7 @@
       />
 
       <div class="pelicula-info">
-        <h4>{{ textoMayusculas(pelicula.titulo) }}</h4>
+        <h3>{{ textoMayusculas(pelicula.titulo) }}</h3>
 
         <p v-if="pelicula.director"><strong>Director:</strong> {{ pelicula.director }}</p>
 
